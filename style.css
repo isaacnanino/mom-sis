@@ -1,0 +1,570 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+body {
+    overflow-x: hidden;
+    animation: process 5s ease infinite;
+}
+
+a{
+    display: block;
+    text-decoration: none;
+}
+
+
+img {
+    display: block;
+    height: auto;
+}
+
+
+.song-container {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.song-container p:first-child {
+    display: inline-block;
+    margin-inline: auto;
+    text-align: center;
+    margin-block: 15px;
+    border: 1px solid transparent;
+    padding: 10px;
+    background-color: rgb(164, 192, 39);
+    border-radius: 7px;
+    color: rgb(58, 22, 2);
+}
+
+
+.song-container p:last-child {
+    margin-block-end: 20px;
+}
+
+
+
+
+   /* Preload */
+
+
+.preload {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;  
+    z-index: 10;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    transition: 500ms ease;
+    animation: process 5s ease infinite;
+}
+
+@keyframes process {
+    0% {
+        background-color: rgb(248, 185, 67);
+    }
+    50% {
+        background-color: rgb(180, 255, 119);
+    }
+    75% {
+        background-color: rgb(87, 255, 247);
+    }
+    100% {
+        background-color: rgb(233, 69, 255);
+    }
+}
+
+
+  
+  
+.preload >  * {
+    transition: 250ms ease;
+     
+}
+  
+.preload.loaded > * {
+    transition: 10000000s ease-out;
+    opacity: 0;
+    
+}
+  
+  
+.preload.loaded {
+    transition-delay: 250ms;
+    transform: translateY(100%);
+}
+  
+.circle {
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    border: 3px solid hsla(0, 0%, 100%, 1);
+    border-block-start-color: hsla(0, 3%, 7%, 1);
+    margin-block-end: 45px;
+    animation: rotate360 1s linear infinite;
+}
+  
+  
+@keyframes rotate360 {
+    0% { transform: rotate(0);}
+    100% { transform: rotate(1turn);}
+}
+  
+.preload .text {
+    background-image: linear-gradient(90deg, transparent 0% 16.66%, var(hsla(0, 3%, 7%, 1)) 33.33% 50%,  transparent 66.66% 75%);
+    background-size: 500%;
+    font-size: calc(2rem + 2vw);
+    font-weight: 700;
+    line-height: 1em;
+    letter-spacing: 16px;
+    padding-inline-start: 16px;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 0.5px hsla(0, 3%, 7%, 1);
+    border-radius: 10px;
+   
+}
+
+
+
+
+
+
+
+
+header {
+    position: relative;
+    height: 24vh;
+    animation: animate 5s ease infinite;
+    width: 100vw;
+    
+
+}
+
+@keyframes animate {
+    0% {
+        background-color: rgba(133, 192, 192, 0.336);
+
+    }
+
+    50% {
+        background-color: rgba(155, 184, 108, 0.336);
+        
+    }
+
+    100% {
+        background-color: rgba(209, 19, 108, 0.336);
+        
+    }
+}
+
+
+
+
+
+
+.birthday {
+    position: absolute;
+    top: 9vh;
+    text-align: center;
+    left: 5%;
+    font-weight: 700;
+    
+    
+
+}
+
+
+
+
+.shape {
+    display: none;
+    position: absolute;
+    max-width: max-content;
+    z-index: -1;
+  
+}
+
+
+.move-anim {
+    animation: move 5s linear infinite;
+}
+  
+  
+@keyframes move {
+    0%,
+    100% { transform: translateY(0);}
+    50% { transform: translateY(30px);}
+}
+
+
+
+
+header .shape {
+    display: block;
+}
+  
+.shape-2 {
+    top: 0;
+    left: 0;
+}
+  
+.shape-4 {
+    top: 0;
+    right: 0;
+}
+
+.shape-3 {
+    top: 50%;
+    left: 22%;
+}
+
+
+.picture-container {
+    position: relative;
+    width: 100%;
+    max-width: max-content;
+    margin-inline: auto;
+    margin-block-start: 30px;
+    margin-block-end: 20px;
+}
+
+.picture-container::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+   background: linear-gradient(-45deg, blue, green, pink, red, indigo);
+   background-size: 400%;
+   z-index: -1;
+   height: calc(100% + 5px);
+   width: calc(100% + 5px);
+   animation: change 40s linear infinite;
+}
+
+.picture-container::after {
+    content: "";
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    bottom: -2px;
+    left: -2px;
+   background: linear-gradient(-45deg, blue, rgb(21, 255, 235), rgb(238, 241, 28), red, rgb(0, 130, 22));
+   background-size: 400%;
+   z-index: -1;
+   height: calc(100% + 5px);
+   width: calc(100% + 5px);
+   animation: change 40s linear infinite;
+}
+
+@keyframes change {
+    0% { background-position: 0 0;}
+
+    50% { background-position: 400% 0;}
+
+    100% { background-position: 0 0;}
+}
+
+
+.picture-container::after {
+    filter: blur(40px);
+}
+
+
+
+
+
+.card-container {
+    width: 100%;
+    max-width: 100%;
+    margin-block-end: 20px;
+}
+
+.card-container h4 {
+    margin-block-end: 10px;
+    text-align: center;
+}
+
+footer {
+    margin-block: 40px;
+    height: 50px;
+    
+}
+
+footer .container {
+    
+    text-align: center;
+    
+}
+
+
+footer .container p {
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    background-color: pink;
+    color: black;
+    transition: 500ms ease;
+}
+
+footer .container p:is(:hover, :focus-visible) {
+    background-color: red;
+
+}
+
+
+/** Media Queries */
+
+@media (min-width: 417px) {
+.birthday {
+    left: 16% ;
+}
+
+
+.shape-3 {
+    top: 50%;
+    left: 32%;
+}
+
+
+
+}
+
+
+@media (min-width: 575px) {
+
+.birthday {
+    left: 22%;
+}
+
+
+
+.shape-3 {
+    top: 50%;
+    left: 35%;
+}
+
+
+
+
+}
+
+
+@media (min-width: 768px) {
+
+.birthday {
+    left: 30%;
+}
+    
+
+    
+.shape-3 {
+    top: 50%;
+    left: 39%;
+}
+
+.heart-1 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-1 .picture-container {
+    margin-inline-start: 20px;
+}
+
+.heart-1 .card-container {
+    margin-inline: 30px ;
+}
+
+.heart-2 .container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-2 .picture-container {
+    margin-inline-end: 20px;
+}
+
+.heart-2 .card-container {
+    margin-inline: 30px ;
+}
+
+
+.heart-3 .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-3 .picture-container {
+    margin-inline-start: 20px;
+}
+
+.heart-3 .card-container {
+    margin-inline: 30px ;
+}
+
+
+.heart-4 .container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-4 .picture-container {
+    margin-inline-end: 20px;
+}
+
+.heart-4 .card-container {
+    margin-inline: 30px ;
+}
+
+
+
+    
+}
+
+
+
+@media (min-width: 956px) {
+
+.birthday {
+    left: 37%;
+}
+        
+
+        
+.shape-3 {
+    top: 50%;
+    left: 45%;
+}
+
+.heart-1 .picture-container {
+    margin-inline-start: 50px;
+    margin-inline-end: 50px;
+
+}
+
+.heart-2 .card-container {
+    margin-inline-start: 50px ;
+}
+
+
+.heart-2 .picture-container {
+    margin-inline-start: 50px;
+    margin-inline-end: 50px;
+
+}
+
+.heart-3 .picture-container {
+    margin-inline-start: 50px;
+    margin-inline-end: 50px;
+
+}
+
+.heart-4 .picture-container {
+    margin-inline-start: 50px;
+    margin-inline-end: 50px;
+
+}
+
+.heart-4 .card-container {
+    margin-inline-start: 50px ;
+}
+   
+   
+      
+
+}
+
+
+@media (min-width: 1200px) {
+
+
+.birthday {
+    left: 40%;
+}
+            
+.birthday.second {
+    left: 48%;
+}
+            
+.shape-3 {
+    top: 50%;
+    left: 47%;
+}
+    
+.heart-1 .picture-container {
+    margin-inline-start: 80px;
+    margin-inline-end: 80px;
+    
+}
+
+.heart-1 .card-container {
+    margin-inline-end: 80px;
+}
+    
+.heart-2 .card-container {
+    margin-inline-start: 80px ;
+}
+    
+    
+.heart-2 .picture-container {
+    margin-inline-start: 80px;
+    margin-inline-end: 80px;
+    
+}
+    
+.heart-3 .picture-container {
+    margin-inline-start: 80px;
+    margin-inline-end: 80px;
+    
+}
+
+.heart-3 .card-container {
+    margin-inline-end: 80px;
+}
+    
+.heart-4 .picture-container {
+    margin-inline-start: 80px;
+    margin-inline-end: 80px;
+    
+}
+    
+.heart-4 .card-container {
+    margin-inline-start: 80px ;
+}
+       
+
+
+}
+
+
+
+
+@media (min-width: 1400px) {
+    
+}
+
