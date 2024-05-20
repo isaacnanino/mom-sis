@@ -14,3 +14,6 @@ const loaded =  function() {
     }, 3000);
 }
 
+
+window.addEventListener("load", loaded);
+
